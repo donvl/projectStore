@@ -1,7 +1,2 @@
 # projectStore
-Система Интернет магазин. Пользователю предоставляеться регистрация, аутентификация и авторизация.
-У пользователя может быть одна(незарегистрированный) или несколько ролей(зарегистрированный, менеджер, администратор) с соответствующими
-правами доступа.
-Покупатель может делать заказы, добавлять их в корзину, а так же оставлять отзывывы.
-Покупатель может получать уведомления на электронную почту.
-Обмен данных будет происходить через API.
+Online store System. There are registration, authentication and authorization for user. User can have one (unregistered) or several roles (registered, manager, administrator) with all necessary accesses rights. Customer can make orders, put them to the basket and leave feedback. Customer can receive email  notifications. Data exchange will provide by API 
