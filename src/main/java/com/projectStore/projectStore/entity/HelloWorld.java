@@ -9,7 +9,7 @@ import org.joda.time.LocalTime;
 public class HelloWorld {
     public static void main(String[] args) {
         LocalTime currentTime = new LocalTime();
-        System.out.println(currentTime);
+        System.out.println("The current local time is: " + currentTime);
         Home home = new Home();
         System.out.println(home.sayHello());
     }
