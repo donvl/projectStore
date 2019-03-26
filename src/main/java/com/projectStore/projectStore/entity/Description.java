@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "description")
-public class Description {
+public class  Description {
     @Id
     @Column(name = "description_id")
     @SequenceGenerator(name = "description_seq", sequenceName = "description_seq", allocationSize = 1)
