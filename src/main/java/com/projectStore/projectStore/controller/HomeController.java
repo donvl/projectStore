@@ -16,4 +16,10 @@ public class HomeController {
         model.put("key", "Главная страница");
         return "home";
     }
+    @GetMapping("test")
+    public String test(Map<String, Object> model) {
+        model.put("key", "Страница админа");
+        return "test";
+    }
+
 }
