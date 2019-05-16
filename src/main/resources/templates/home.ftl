@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <div>{{key}}</div></br>
+        <div>Домашняя страница</div></br>
         <button onclick="location.href='test';">Кнопка</button></br>
     </body>
 </html>

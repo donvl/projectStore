@@ -37,7 +37,7 @@ transform: rotateX(-90deg); /* Поворачиваем на 90 градусов
 </style>
 </head>
 <body>
-<div>{{key}}</div></br>
+<div>Страница админа</div></br>
 <button class="seven" onclick="location.href='home';">Кнопка</button></br>
 
 </body>
