@@ -3,6 +3,7 @@ package com.projectStore.projectStore.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -16,4 +17,7 @@ public class OrderStatus {
 
     @Column(name = "status_name")
     private String statusName;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderStatus")
+    private Set<OrdersHeader> ordersHeaders;
 }

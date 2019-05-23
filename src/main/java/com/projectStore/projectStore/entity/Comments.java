@@ -16,13 +16,14 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comment_seq")
     private int commentId;
 
-    @Column(name = "user_id")
-    private int userId;
-
     @Column(name = "comment")
     private String comment;
 
     @Column(name = "comment_time")
-    private Date orderId;
+    private Date comentTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private User user;
 
 }

@@ -50,5 +50,10 @@ public class User {
                     name = "role_id", referencedColumnName = "role_id"))
     private Set<Role> roles;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<OrdersHeader> ordersHeaders;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+    private Set<Comments> comments;
 
 }

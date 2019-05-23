@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,14 +16,8 @@ public class OrdersHeader {
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "orders_header_seq")
     private int orderId;
 
-    @Column(name = "user_id")
-    private int userId;
-
     @Column(name = "order_time")
     private int orderTime;
-
-    @Column(name = "order_status_id")
-    private int orderStatusId;
 
     @Column(name = "sum")
     private BigDecimal sum;
@@ -32,4 +27,21 @@ public class OrdersHeader {
 
     @Column(name = "client_phone")
     private String clientPhone;
+
+    @Column(name = "address")
+    private String address;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "ordersHeader")
+    private Sells sells;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ordersHeader")
+    private Set<OrdersTable> ordersTables;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_status_id")
+    private OrderStatus orderStatus;
 }

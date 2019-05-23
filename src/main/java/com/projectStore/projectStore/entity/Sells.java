@@ -17,10 +17,11 @@ public class Sells {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sell_seq")
     private int sellId;
 
-    @Column(name = "order_id")
-    private int orderId;
-
     @Column(name = "sell_time")
     private Date sellTime;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private OrdersHeader ordersHeader;
 
 }

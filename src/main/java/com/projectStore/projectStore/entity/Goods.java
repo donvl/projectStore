@@ -4,6 +4,7 @@ import lombok.Data;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by 111 on 25.03.2019.
@@ -23,12 +24,6 @@ public class Goods {
 
     @Column(name = "manufacturer")
     private String manufacturer;
-
-    @Column(name = "goods_type_id")
-    private String goodsTypeId;
-
-    @Column(name = "description_id")
-    private int descriptionId;
 
     @Column(name = "goods_size")
     private String goodsSize;
@@ -53,4 +48,15 @@ public class Goods {
 
     @Column(name = "quantity")
     private int quantity;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "goods")
+    private Set<OrdersTable> ordersTables;
+
+    @OneToOne
+    @JoinColumn(name = "goods_type_id")
+    private GoodsType goodsType;
+
+    @OneToOne
+    @JoinColumn(name = "description_id")
+    private  Description description;
 }

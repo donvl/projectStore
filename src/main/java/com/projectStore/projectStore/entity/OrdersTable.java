@@ -10,17 +10,22 @@ import java.math.BigDecimal;
 @Table(name = "orders_table")
 public class OrdersTable {
     @Id
-    @Column(name = "order_id")
+    @Column(name = "order_table_id")
     @SequenceGenerator(name = "orders_table_seq", sequenceName = "orders_table_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_table_seq")
-    private int orderId;
-
-    @Column(name = "goods_id")
-    private int goodsId;
+    private int orderTableId;
 
     @Column(name = "order_price")
     private BigDecimal orderPrice;
 
     @Column(name = "count")
     private int count;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "goods_id")
+    private Goods goods;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private OrdersHeader ordersHeader;
 }
