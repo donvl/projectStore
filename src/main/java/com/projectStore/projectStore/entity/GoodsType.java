@@ -19,4 +19,7 @@ public class GoodsType {
 
     @Column(name = "type_name")
     private String typeName;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "goodsType")
+    private Goods goods;
 }

@@ -1,12 +1,14 @@
-package com.projectStore.projectStore.service;
+package com.projectStore.projectStore.serviceImpl;
 
 import com.projectStore.projectStore.dao.RoleDao;
 import com.projectStore.projectStore.entity.Role;
+import com.projectStore.projectStore.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class RoleServiceImpl implements RoleService {
 
     @Autowired

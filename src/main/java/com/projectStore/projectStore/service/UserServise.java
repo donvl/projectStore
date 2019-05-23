@@ -2,14 +2,7 @@ package com.projectStore.projectStore.service;
 
 import com.projectStore.projectStore.entity.User;
 
-public interface UserServise {
-    void save(User user);
 
-    void updateUser(User user);
+public interface UserServise extends BaseDbMethod<User> {
 
-    void deleteUser(Long id);
-
-    User findUserByName(String username);
-
-    User findUserById(Long id);
 }
