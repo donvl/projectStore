@@ -21,4 +21,5 @@ public interface BaseDbMethod<T> {
     List<T> findAll(Specification spec);
 
     void saveAll(Collection collection);
+    
 }
