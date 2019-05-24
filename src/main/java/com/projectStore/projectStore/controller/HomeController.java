@@ -5,9 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Map;
 
-/**
- * Created by 111 on 01.04.2019.
- */
+
 @Controller
 public class HomeController {
 

@@ -15,7 +15,7 @@ public class Sells {
     @Column(name = "sell_id")
     @SequenceGenerator(name = "sell_seq", sequenceName = "sell_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sell_seq")
-    private int sellId;
+    private Long sellId;
 
     @Column(name = "sell_time")
     private Date sellTime;

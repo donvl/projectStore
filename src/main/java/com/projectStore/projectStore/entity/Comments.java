@@ -14,7 +14,7 @@ public class Comments {
     @Column(name = "comment_id")
     @SequenceGenerator(name = "comment_seq", sequenceName = "comment_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comment_seq")
-    private int commentId;
+    private Long commentId;
 
     @Column(name = "comment")
     private String comment;

@@ -14,7 +14,7 @@ public class OrdersHeader {
     @Column (name = "order_id")
     @SequenceGenerator(name = "orders_header_seq", sequenceName = "orders_header_seq", allocationSize = 1)
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "orders_header_seq")
-    private int orderId;
+    private Long orderId;
 
     @Column(name = "order_time")
     private int orderTime;

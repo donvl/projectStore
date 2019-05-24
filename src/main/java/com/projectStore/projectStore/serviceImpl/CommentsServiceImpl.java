@@ -4,7 +4,6 @@ import com.projectStore.projectStore.dao.CommentsDao;
 import com.projectStore.projectStore.entity.Comments;
 import com.projectStore.projectStore.service.CommentsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +48,7 @@ public class CommentsServiceImpl implements CommentsService {
 
     @Override
     public List<Comments> findAll(Specification spec) {
-        return commentsDao.findAll((Sort) spec);
+        return commentsDao.findAll(spec);
     }
 
     @Override

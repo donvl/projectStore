@@ -4,7 +4,6 @@ import com.projectStore.projectStore.dao.SellsDao;
 import com.projectStore.projectStore.entity.Sells;
 import com.projectStore.projectStore.service.SellsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -50,7 +49,7 @@ public class SellsServiceImpl implements SellsService {
 
     @Override
     public List<Sells> findAll(Specification spec) {
-        return sellsDao.findAll((Sort) spec);
+        return sellsDao.findAll(spec);
     }
 
     @Override

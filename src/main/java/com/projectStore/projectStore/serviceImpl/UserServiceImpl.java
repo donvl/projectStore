@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserServise {
 
     @Override
     public List<User> findAll(Specification spec) {
-        return userDao.findAll();
+        return userDao.findAll(spec);
     }
 
     @Override
