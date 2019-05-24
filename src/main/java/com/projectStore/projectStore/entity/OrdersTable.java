@@ -13,7 +13,7 @@ public class OrdersTable {
     @Column(name = "order_table_id")
     @SequenceGenerator(name = "orders_table_seq", sequenceName = "orders_table_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_table_seq")
-    private int orderTableId;
+    private Long orderTableId;
 
     @Column(name = "order_price")
     private BigDecimal orderPrice;

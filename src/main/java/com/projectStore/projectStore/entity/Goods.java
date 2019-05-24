@@ -6,9 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by 111 on 25.03.2019.
- */
+
 @Data
 @Entity
 @Table(name = "goods")
@@ -17,7 +15,7 @@ public class Goods {
     @Column(name = "goods_id")
     @SequenceGenerator(name = "goods_seq", sequenceName = "goods_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "goods_seq")
-    private int goodsId;
+    private Long goodsId;
 
     @Column(name = "goods_name")
     private String goodsName;

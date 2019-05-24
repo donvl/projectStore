@@ -13,7 +13,7 @@ public class OrderStatus {
     @Column(name = "order_status_id")
     @SequenceGenerator(name = "order_status_seq", sequenceName = "order_status_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_status_seq")
-    private int orderStatusId;
+    private Long orderStatusId;
 
     @Column(name = "status_name")
     private String statusName;

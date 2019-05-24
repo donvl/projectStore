@@ -2,9 +2,8 @@ package com.projectStore.projectStore.dao;
 
 import com.projectStore.projectStore.entity.Comments;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-/**
- * Created by 111 on 23.05.2019.
- */
-public interface CommentsDao extends JpaRepository<Comments, Long> {
+
+public interface CommentsDao extends JpaRepository<Comments, Long>, JpaSpecificationExecutor<Comments> {
 }
