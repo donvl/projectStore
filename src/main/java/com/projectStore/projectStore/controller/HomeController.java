@@ -20,16 +20,9 @@ public class HomeController {
         model.put("textHome", "Главная страница");
         return "home";
     }
-
-    @GetMapping("test")
-    public String test(Map<String, Object> model) {
-        model.put("key", "Страница админа");
-        return "test";
-    }
-
+    
     @GetMapping("users")
     public String users(Map<String, Object> model) {
-
         model.put("userList", userServise.findAll());
         return "users";
     }
