@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Пользователи</h1>
+    <div>
+        <form th:action="@{/addUser}" method="post">
+            <table>
+                <tr>
+                    <td><input type="text" placeholder="логин" name="login"/></td>
+                    <td><input type="text" placeholder="ФИО" name="userName"/></td>
+                    <td><input type="text" placeholder="телефон" name="mobile"/></td>
+                    <td><input type="submit" value="Добавить"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <table>
+        <caption><h1></h1></caption>
+        <thead>
+            <tr>
+                <th>Логин</th>
+                <th>ФИО</th>
+                <th>Телефон</th>
+                <th>Редактировать</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block  th:each="row : ${userList}">
+                <tr th:id="${'userView' + row.getUserId()}">
+                    <td th:text="${row.getUserLogin()}"></td>
+                    <td th:text="${row.getUserName()}"></td>
+                    <td th:text="${row.getMobile()}"></td>
+                    <td><button type="button" th:onclick="'editUser(' + ${row.getUserId()} + ')'">Редактировать</button></td>
+                    <td><a th:href="@{/deleteUser/} + ${row.getUserId()}">удалить</a></td>
+                </tr>
+
+                <form th:action="@{/editUser}" method="post">
+                    <tr th:id="${'userEdit' + row.getUserId()}" hidden="hidden">
+                        <td><input type="text" placeholder="логин" name="login" th:value="${row.getUserLogin()}"/></td>
+                        <td><input type="text" placeholder="ФИО" name="userName" th:value="${row.getUserName()}"/></td>
+                        <td><input type="text" placeholder="телефон" name="mobile" th:value="${row.getMobile()}"/></td>
+                        <td><input type="number" hidden="hidden" name="userId" th:value="${row.getUserId()}"/></td>
+                        <td><input type="submit" value="Записать"/></td>
+                        <td><button type="button" onclick="location.href='users';">Отмена</button></td>
+                    </tr>
+                </form>
+            </th:block>
+        </tbody>
+    </table>
+<script>
+    function editUser(userId) {
+        document.getElementById('userEdit' + userId).removeAttribute('hidden');
+        document.getElementById('userView' + userId).setAttribute('hidden', 'hidden');
+    }
+</script>
+    <div><a href="home">На главную</a></div>
+</body>
+</html>
