@@ -18,7 +18,7 @@ public class OrdersTableServiceImpl implements OrdersTableService {
     OrdersTableDao ordersTableDao;
 
     @Override
-    public OrdersTable finById(Long id) {
+    public OrdersTable findById(Long id) {
         return ordersTableDao.getOne(id);
     }
 
@@ -43,7 +43,7 @@ public class OrdersTableServiceImpl implements OrdersTableService {
     }
 
     @Override
-    public void upDate(OrdersTable obj) {
+    public void update(OrdersTable obj) {
         ordersTableDao.saveAndFlush(obj);
     }
 

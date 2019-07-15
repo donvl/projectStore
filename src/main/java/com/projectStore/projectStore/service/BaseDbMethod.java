@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface BaseDbMethod<T> {
-    T finById(Long id);
+    T findById(Long id);
 
     List<T> findAll();
 
@@ -16,7 +16,7 @@ public interface BaseDbMethod<T> {
 
     void deleteById(Long id);
 
-    void upDate(T obj);
+    void update(T obj);
 
     List<T> findAll(Specification spec);
 

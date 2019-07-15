@@ -18,7 +18,7 @@ public class DescriptionServiceImpl implements DescriptionService {
     DescriptionDao descriptionDao;
 
     @Override
-    public Description finById(Long id) {
+    public Description findById(Long id) {
         return descriptionDao.getOne(id);
     }
 
@@ -43,7 +43,7 @@ public class DescriptionServiceImpl implements DescriptionService {
     }
 
     @Override
-    public void upDate(Description obj) {
+    public void update(Description obj) {
         descriptionDao.saveAndFlush(obj);
     }
 

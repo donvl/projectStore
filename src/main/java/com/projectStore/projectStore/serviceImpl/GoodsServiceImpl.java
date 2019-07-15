@@ -17,7 +17,7 @@ public class GoodsServiceImpl implements GoodsService {
     GoodsDao goodsDao;
 
     @Override
-    public Goods finById(Long id) {
+    public Goods findById(Long id) {
         return goodsDao.getOne(id);
     }
 
@@ -42,7 +42,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public void upDate(Goods obj) {
+    public void update(Goods obj) {
         goodsDao.saveAndFlush(obj);
     }
 
