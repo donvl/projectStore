@@ -17,7 +17,7 @@ public class SellsServiceImpl implements SellsService {
     SellsDao sellsDao;
 
     @Override
-    public Sells finById(Long id) {
+    public Sells findById(Long id) {
         return sellsDao.getOne(id);
 
     }
@@ -43,7 +43,7 @@ public class SellsServiceImpl implements SellsService {
     }
 
     @Override
-    public void upDate(Sells obj) {
+    public void update(Sells obj) {
         sellsDao.saveAndFlush(obj);
     }
 

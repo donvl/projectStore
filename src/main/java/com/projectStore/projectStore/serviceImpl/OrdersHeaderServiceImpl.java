@@ -17,7 +17,7 @@ public class OrdersHeaderServiceImpl implements OrdersHeaderService {
     OrdersHeaderDao ordersHeaderDao;
 
     @Override
-    public OrdersHeader finById(Long id) {
+    public OrdersHeader findById(Long id) {
         return ordersHeaderDao.getOne(id);
     }
 
@@ -42,7 +42,7 @@ public class OrdersHeaderServiceImpl implements OrdersHeaderService {
     }
 
     @Override
-    public void upDate(OrdersHeader obj) {
+    public void update(OrdersHeader obj) {
         ordersHeaderDao.saveAndFlush(obj);
     }
 

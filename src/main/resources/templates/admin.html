@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Пользователи</h1>
+    <h1>Администрирование</h1>
     <div>
         <form th:action="@{/addUser}" method="post">
             <table>
@@ -13,6 +13,8 @@
                     <td><input type="text" placeholder="логин" name="login"/></td>
                     <td><input type="text" placeholder="ФИО" name="userName"/></td>
                     <td><input type="text" placeholder="телефон" name="mobile"/></td>
+                    <td><input type="text" placeholder="пароль" name="password"/></td>
+                    <td><input type="text" placeholder="почта" name="mail"/></td>
                     <td><input type="submit" value="Добавить"/></td>
                 </tr>
             </table>
@@ -26,6 +28,8 @@
                 <th>Логин</th>
                 <th>ФИО</th>
                 <th>Телефон</th>
+                <th>Пароль</th>
+                <th>Почта</th>
                 <th>Редактировать</th>
                 <th>Удалить</th>
             </tr>
@@ -36,6 +40,8 @@
                     <td th:text="${row.getUserLogin()}"></td>
                     <td th:text="${row.getUserName()}"></td>
                     <td th:text="${row.getMobile()}"></td>
+                    <td th:text="${row.getUserPass()}"></td>
+                    <td th:text="${row.getUserMail()}"></td>
                     <td><button type="button" th:onclick="'editUser(' + ${row.getUserId()} + ')'">Редактировать</button></td>
                     <td><a th:href="@{/deleteUser/} + ${row.getUserId()}">удалить</a></td>
                 </tr>
@@ -45,9 +51,11 @@
                         <td><input type="text" placeholder="логин" name="login" th:value="${row.getUserLogin()}"/></td>
                         <td><input type="text" placeholder="ФИО" name="userName" th:value="${row.getUserName()}"/></td>
                         <td><input type="text" placeholder="телефон" name="mobile" th:value="${row.getMobile()}"/></td>
-                        <td><input type="number" hidden="hidden" name="userId" th:value="${row.getUserId()}"/></td>
+                        <td><input type="text" placeholder="телефон" name="password" th:value="${row.getUserPass()}"/></td>
+                        <td><input type="text" placeholder="телефон" name="mail" th:value="${row.getUserMail()}"/></td>
+                        <td><input type="number" hidden="hidden" name="id" th:value="${row.getUserId()}"/></td>
                         <td><input type="submit" value="Записать"/></td>
-                        <td><button type="button" onclick="location.href='users';">Отмена</button></td>
+                        <td><button type="button" onclick="location.href='/admin';">Отмена</button></td>
                     </tr>
                 </form>
             </th:block>

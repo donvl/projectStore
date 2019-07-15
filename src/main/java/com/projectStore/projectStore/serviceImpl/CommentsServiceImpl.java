@@ -17,7 +17,7 @@ public class CommentsServiceImpl implements CommentsService {
     CommentsDao commentsDao;
 
     @Override
-    public Comments finById(Long id) {
+    public Comments findById(Long id) {
         return commentsDao.getOne(id);
     }
 
@@ -42,7 +42,7 @@ public class CommentsServiceImpl implements CommentsService {
     }
 
     @Override
-    public void upDate(Comments obj) {
+    public void update(Comments obj) {
         commentsDao.saveAndFlush(obj);
     }
 

@@ -2,23 +2,21 @@ package com.projectStore.projectStore.serviceImpl;
 
 import com.projectStore.projectStore.dao.UserDao;
 import com.projectStore.projectStore.entity.User;
-import com.projectStore.projectStore.service.UserServise;
+import com.projectStore.projectStore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserServise {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
 
-
     @Override
-    public User finById(Long id) {
+    public User findById(Long id) {
         return userDao.getOne(id);
     }
 
@@ -43,7 +41,7 @@ public class UserServiceImpl implements UserServise {
     }
 
     @Override
-    public void upDate(User obj) {
+    public void update(User obj) {
         userDao.saveAndFlush(obj);
     }
 

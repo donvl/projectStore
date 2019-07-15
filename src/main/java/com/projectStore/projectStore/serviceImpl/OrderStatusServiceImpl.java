@@ -17,7 +17,7 @@ public class OrderStatusServiceImpl implements OrderStatusService {
     OrderStatusDao orderStatusDao;
 
     @Override
-    public OrderStatus finById(Long id) {
+    public OrderStatus findById(Long id) {
         return orderStatusDao.getOne(id);
     }
 
@@ -42,7 +42,7 @@ public class OrderStatusServiceImpl implements OrderStatusService {
     }
 
     @Override
-    public void upDate(OrderStatus obj) {
+    public void update(OrderStatus obj) {
         orderStatusDao.saveAndFlush(obj);
     }
 
