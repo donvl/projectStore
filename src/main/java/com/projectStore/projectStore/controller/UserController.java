@@ -13,10 +13,10 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    UserUtil userUtil;
+    private UserUtil userUtil;
 
     @RequestMapping(value = "addUser", method = RequestMethod.POST)
     public String addUser(@RequestParam(value = "login") String login,
@@ -69,4 +69,5 @@ public class UserController {
         userUtil.addUser(login, userName, mobile, userPassword, mail);
         return "redirect:/login";
     }
+
 }

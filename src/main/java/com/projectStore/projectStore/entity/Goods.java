@@ -4,13 +4,14 @@ import lombok.Data;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 
 @Data
 @Entity
 @Table(name = "goods")
-public class Goods {
+public class Goods implements Serializable {
     @Id
     @Column(name = "goods_id")
     @SequenceGenerator(name = "goods_seq", sequenceName = "goods_seq", allocationSize = 1)

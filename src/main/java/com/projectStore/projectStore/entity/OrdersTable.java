@@ -3,12 +3,13 @@ package com.projectStore.projectStore.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @Entity
 @Table(name = "orders_table")
-public class OrdersTable {
+public class OrdersTable implements Serializable {
     @Id
     @Column(name = "order_table_id")
     @SequenceGenerator(name = "orders_table_seq", sequenceName = "orders_table_seq", allocationSize = 1)

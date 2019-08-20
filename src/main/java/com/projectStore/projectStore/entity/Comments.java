@@ -3,13 +3,14 @@ package com.projectStore.projectStore.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "comments_table")
 
-public class Comments {
+public class Comments implements Serializable {
     @Id
     @Column(name = "comment_id")
     @SequenceGenerator(name = "comment_seq", sequenceName = "comment_seq", allocationSize = 1)

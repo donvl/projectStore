@@ -14,9 +14,8 @@ public class HomeController {
     @Autowired
     UserService userService;
 
-    @GetMapping
-    public String main(Map<String, Object> model) {
-        model.put("textHome", "Главная страница");
+    @GetMapping("/")
+    public String main() {
         return "home";
     }
 
@@ -27,7 +26,8 @@ public class HomeController {
     }
 
     @GetMapping("registration")
-    public String registration(Map<String, Object> model) {
+    public String registration() {
         return "registration";
     }
+
 }
