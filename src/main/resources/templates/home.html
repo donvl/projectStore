@@ -5,11 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Выйти"/>
+    </form>
+</div>
+<div>
+    <form th:action="@{/login}" method="post">
+        <input type="submit" value="Войти"/>
+    </form>
+</div>
 <h1 th:text="${textHome}">Home page</h1>
+
 <div><a href="admin">Администрирование</a></div>
 <div><a href="registration">Регистрация</a></div>
-<div><a href=""></a></div>
-<div><a href=""></a></div>
-<div><a href=""></a></div>
+
 </body>
 </html>
