@@ -29,14 +29,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userDao.findByUserName(username);
 
       if(user == null) {
-            throw new UsernameNotFoundException(username);
+          log.error("user name not found");
+          throw new UsernameNotFoundException(username);
         }
 
         Set<GrantedAuthority> roles = new HashSet();
         roles.add(new SimpleGrantedAuthority("USER"));
 
         UserDetails userDetails =
-                new org.springframework.security.core.userdetails.User(user.getUserLogin(),
+                new org.springframework.security.core.userdetails.User(user.getUserName(),
                         user.getUserPass(),
                         roles);
 

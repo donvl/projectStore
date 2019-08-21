@@ -24,8 +24,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-
     @Autowired
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -37,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/","/login","/registration", "/static/**", "/activate/*").permitAll()
+                    .antMatchers("/","/login","/registration", "/static/**", "/activate/*", "/v2/api-docs").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -55,11 +53,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService getUserDetailsService(){
         return new UserDetailsServiceImpl();
-    }
-
-    @Bean
-    public PasswordEncoder getPasswordEncoder(){
-        return new BCryptPasswordEncoder(4);
     }
 
 }
