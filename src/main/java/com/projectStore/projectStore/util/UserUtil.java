@@ -4,6 +4,8 @@ import com.projectStore.projectStore.entity.Role;
 import com.projectStore.projectStore.entity.User;
 import com.projectStore.projectStore.service.RoleService;
 import com.projectStore.projectStore.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +14,8 @@ import java.util.Set;
 
 @Component
 public class UserUtil {
+
+    private final Logger log = LogManager.getLogger(UserUtil.class.getName());
 
     @Autowired
     UserService userService;
@@ -22,7 +26,7 @@ public class UserUtil {
     public void addUser(String login, String userName, String mobile, String userPassword, String mail){
 
         User user = new User();
-        Long userRoleId = 1L;
+        Long userRoleId = 2L;
         Set<Role> roles = new HashSet<>();
         Role role = roleService.findRoleById(userRoleId);
         roles.add(role);
@@ -34,6 +38,8 @@ public class UserUtil {
         user.setUserPass(userPassword);
         user.setUserMail(mail);
         userService.save(user);
+
+        log.info("created user", user);
     }
 
     public void updateUser(String login, String userName, String mobile, String userPassword, String mail, Long userId){

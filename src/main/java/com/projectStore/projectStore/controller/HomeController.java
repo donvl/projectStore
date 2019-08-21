@@ -1,10 +1,13 @@
 package com.projectStore.projectStore.controller;
 
 import com.projectStore.projectStore.service.UserService;
+import com.projectStore.projectStore.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 
@@ -30,4 +33,11 @@ public class HomeController {
         return "registration";
     }
 
+    @GetMapping("/login")
+    public String getLoginPage(ModelMap model, HttpServletRequest request){
+        if (request.getParameterMap().containsKey("error")){
+            model.addAttribute("error",true);
+        }
+        return "login";
+    }
 }

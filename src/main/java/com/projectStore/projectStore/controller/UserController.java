@@ -2,6 +2,8 @@ package com.projectStore.projectStore.controller;
 
 import com.projectStore.projectStore.service.UserService;
 import com.projectStore.projectStore.util.UserUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,8 @@ import java.util.Map;
 
 @Controller
 public class UserController {
+
+    private final Logger log = LogManager.getLogger(UserUtil.class.getName());
 
     @Autowired
     private UserService userService;
@@ -51,19 +55,20 @@ public class UserController {
             model.put("error", "телефон должен быть от 10 до 14 символов");
             return "error";
         }
-       userUtil.updateUser(login, userName, mobile, userPassword, mail, userId);
+        userUtil.updateUser(login, userName, mobile, userPassword, mail, userId);
         return "redirect:/admin";
     }
 
     @PostMapping("registration")
     public String registration(@RequestParam(value = "login") String login,
-                               @RequestParam(value = "userName") String userName,
+                               @RequestParam(value = "username") String userName,
                                @RequestParam(value = "mobile") String mobile,
                                @RequestParam(value = "password") String userPassword,
                                @RequestParam(value = "mail") String mail,
                                Map<String, Object> model) {
         if (mobile.length() < 10 || mobile.length() > 14) {
             model.put("error", "телефон должен быть от 10 до 14 символов");
+            log.info("incorrect number of phone");
             return "error";
         }
         userUtil.addUser(login, userName, mobile, userPassword, mail);
